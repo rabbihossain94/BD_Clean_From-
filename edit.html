@@ -28,12 +28,24 @@
     <form id="editForm">
       <label>নাম</label>
       <input type="text" name="name" required>
+
       <label>মোবাইল নম্বর</label>
       <input type="text" name="phone" required>
+
       <label>ই-মেইল</label>
       <input type="email" name="email">
+
+      <label>শ্রেণী</label>
+      <select name="category" required>
+        <option value="class1">প্রথম শ্রেণী</option>
+        <option value="class2">দ্বিতীয় শ্রেণী</option>
+        <option value="class3">তৃতীয় শ্রেণী</option>
+        <option value="class4">চতুর্থ শ্রেণী</option>
+      </select>
+
       <label>অনুষ্ঠানের স্থান</label>
       <input type="text" name="location" required>
+
       <button type="submit">সেভ করুন</button>
     </form>
   </div>
