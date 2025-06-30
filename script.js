@@ -17,20 +17,21 @@ document.getElementById('eventForm')?.addEventListener('submit', function (e) {
   const name = this.name.value;
   const phone = this.phone.value;
   const email = this.email.value;
+  const category = this.category.value;
   const location = this.location.value;
   const timestamp = new Date().toLocaleString();
 
   // Save to local storage
   let history = JSON.parse(localStorage.getItem('formHistory')) || [];
   const newEntry = {
-    name, phone, email, location, timestamp,
+    name, phone, email, category, location, timestamp,
     status: 'pending'
   };
   history.push(newEntry);
   localStorage.setItem('formHistory', JSON.stringify(history));
 
   // Send Telegram notification
-  const message = `📢 নতুন ফর্ম জমা:\n👤 নাম: ${name}\n📞 মোবাইল: ${phone}\n📧 ইমেইল: ${email || 'N/A'}\n📍 স্থান: ${location}\n⏱ সময়: ${timestamp}`;
+  const message = `📢 নতুন ফর্ম জমা:\n👤 নাম: ${name}\n📞 মোবাইল: ${phone}\n📧 ইমেইল: ${email || 'N/A'}\n📚 শ্রেণী: ${category}\n📍 স্থান: ${location}\n⏱ সময়: ${timestamp}`;
 
   fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
