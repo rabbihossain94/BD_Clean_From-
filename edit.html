@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <img src="logo.png" class="logo" alt="Logo">
+      <div class="green-line"></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">🎯 অনুষ্ঠান ফর্ম</a></li>
+      <li><a href="history.html">📜 ইতিহাস</a></li>
+    </ul>
+  </div>
+
+  <!-- Menu Button -->
+  <button class="menu-btn" id="menuBtn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>🔧 তথ্য এডিট করুন</h2>
+    <form id="editForm">
+      <label>নাম</label>
+      <input type="text" name="name" required>
+      <label>মোবাইল নম্বর</label>
+      <input type="text" name="phone" required>
+      <label>ই-মেইল</label>
+      <input type="email" name="email">
+      <label>অনুষ্ঠানের স্থান</label>
+      <input type="text" name="location" required>
+      <button type="submit">সেভ করুন</button>
+    </form>
+  </div>
+
+  <script src="edit.js"></script>
+</body>
+</html>

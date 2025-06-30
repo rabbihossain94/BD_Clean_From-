@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ইতিহাস</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <img src="logo.png" class="logo" alt="Logo">
+      <div class="green-line"></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">🎯 অনুষ্ঠান ফর্ম</a></li>
+      <li><a href="history.html">📜 ইতিহাস</a></li>
+    </ul>
+  </div>
+
+  <!-- Menu Button -->
+  <button class="menu-btn" id="menuBtn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>📜 সাবমিট ইতিহাস</h2>
+    <table id="historyTable">
+      <thead>
+        <tr>
+          <th>নাম</th>
+          <th>মোবাইল</th>
+          <th>স্থান</th>
+          <th>সময়</th>
+          <th>স্ট্যাটাস</th>
+          <th>অ্যাকশন</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="history.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+/* ✅ style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Bangla', sans-serif;
+  background: #f4f4f4;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  background: #2c3e50;
+  box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+  padding: 20px;
+  transform: translateX(0);
+  transition: transform 0.4s ease;
+  z-index: 1000;
+}
+
+.sidebar.closed {
+  transform: translateX(-240px);
+}
+
+.sidebar .sidebar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar .logo {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.green-line {
+  height: 4px;
+  width: 100%;
+  background: #4CAF50;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 15px 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.menu-btn {
+  position: fixed;
+  top: 15px;
+  left: 250px;
+  z-index: 1100;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  font-size: 20px;
+  height: 40px;
+  width: 40px;
+  line-height: 1;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+  transition: left 0.3s ease;
+}
+
+.sidebar.closed + .menu-btn {
+  left: 15px;
+}
+
+.main-content {
+  margin-left: 260px;
+  padding: 40px 20px;
+  transition: margin-left 0.4s ease;
+}
+
+.sidebar.closed ~ .main-content {
+  margin-left: 20px;
+}
+
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+button {
+  background: #388e3c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.pending {
+  color: red;
+  font-weight: bold;
+}
+
+.approved {
+  color: green;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  .menu-btn {
+    left: 210px;
+    height: 36px;
+    width: 36px;
+    font-size: 18px;
+  }
+  .sidebar.closed + .menu-btn {
+    left: 10px;
+  }
+  .main-content {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+}
