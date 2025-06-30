@@ -14,6 +14,7 @@ function loadHistory() {
     row.innerHTML = `
       <td>${item.name}</td>
       <td>${item.phone}</td>
+      <td>${getCategoryName(item.category)}</td>
       <td>${item.location}</td>
       <td>${item.timestamp}</td>
       <td class="${item.status}">${item.status === 'pending' ? '⏳ পেন্ডিং' : '✅ অ্যাপ্রুভড'}</td>
@@ -25,6 +26,16 @@ function loadHistory() {
     `;
     tableBody.appendChild(row);
   });
+}
+
+function getCategoryName(categoryValue) {
+  const categories = {
+    'class1': 'প্রথম শ্রেণী',
+    'class2': 'দ্বিতীয় শ্রেণী',
+    'class3': 'তৃতীয় শ্রেণী',
+    'class4': 'চতুর্থ শ্রেণী'
+  };
+  return categories[categoryValue] || categoryValue;
 }
 
 // Edit function
@@ -43,7 +54,7 @@ function deleteEntry(index) {
     loadHistory();
     
     // Telegram notification
-    const message = `🗑️ ফর্ম ডিলিট করা হয়েছে:\n👤 নাম: ${deletedItem.name}\n📞 মোবাইল: ${deletedItem.phone}\n📍 স্থান: ${deletedItem.location}`;
+    const message = `🗑️ ফর্ম ডিলিট করা হয়েছে:\n👤 নাম: ${deletedItem.name}\n📞 মোবাইল: ${deletedItem.phone}\n📚 শ্রেণী: ${getCategoryName(deletedItem.category)}\n📍 স্থান: ${deletedItem.location}`;
     sendTelegramNotification(message);
   }
 }
@@ -57,7 +68,7 @@ function approveEntry(index) {
   
   // Telegram notification
   const item = history[index];
-  const message = `✅ ফর্ম অ্যাপ্রুভড:\n👤 নাম: ${item.name}\n📞 মোবাইল: ${item.phone}\n📍 স্থান: ${item.location}\n⏱ সময়: ${item.timestamp}`;
+  const message = `✅ ফর্ম অ্যাপ্রুভড:\n👤 নাম: ${item.name}\n📞 মোবাইল: ${item.phone}\n📚 শ্রেণী: ${getCategoryName(item.category)}\n📍 স্থান: ${item.location}\n⏱ সময়: ${item.timestamp}`;
   sendTelegramNotification(message);
 }
 
