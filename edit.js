@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
   form.phone.value = data.phone;
   form.email.value = data.email || '';
   form.location.value = data.location;
+  
+  // Set selected category
+  form.category.value = data.category;
 
   // Form submission
   form.addEventListener('submit', function (e) {
@@ -20,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
       name: form.name.value,
       phone: form.phone.value,
       email: form.email.value,
+      category: form.category.value,
       location: form.location.value,
       timestamp: new Date().toLocaleString()
     };
@@ -29,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.removeItem('editIndex');
     
     // Telegram notification
-    const message = `✏️ ফর্ম এডিট করা হয়েছে:\n👤 নাম: ${form.name.value}\n📞 মোবাইল: ${form.phone.value}\n📍 স্থান: ${form.location.value}\n⏱ সময়: ${updatedData.timestamp}`;
+    const message = `✏️ ফর্ম এডিট করা হয়েছে:\n👤 নাম: ${form.name.value}\n📞 মোবাইল: ${form.phone.value}\n📚 শ্রেণী: ${form.category.options[form.category.selectedIndex].text}\n📍 স্থান: ${form.location.value}\n⏱ সময়: ${updatedData.timestamp}`;
     sendTelegramNotification(message);
     
     window.location.href = 'history.html';
