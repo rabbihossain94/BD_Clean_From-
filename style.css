@@ -175,3 +175,18 @@ th, td {
     padding-top: 80px;
   }
 }
+/* নতুন স্টাইল যোগ করুন */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  font-family: 'Bangla', sans-serif;
+}
+
+select:focus {
+  outline: none;
+  border-color: #388e3c;
+}
